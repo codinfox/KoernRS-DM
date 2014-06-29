@@ -17,6 +17,12 @@ for i = 1 : size(diff_labels);
     idx = idx+train_num(i);
 end
 rat_test = setxor(proc_ratings,rat_train,'rows');
-clear i idx;
 
+num_users = size(diff_labels,1);
+num_movies = size(unique(proc_ratings(:,2)),1);
+% the damn fucking truth is the id is not continuous and thus num != max_id
+max_user_id = max(proc_ratings(:,1));
+max_movie_id = max(proc_ratings(:,2));
+
+clear i idx diff_labels label_count start_label train_num;
 save processed_dataset.mat
