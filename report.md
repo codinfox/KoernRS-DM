@@ -12,7 +12,13 @@
 ## Step.2 Neighbourhood Estimator
 ### 2.1 Item-based Similarity
 #### 方法
+这一部分的实现主要参照 *Koren08'* 2.2节关于Neighborhood models的描述，参数lambda2采取作者建议为100。在pearson相关系数的计算上，取item i与j的公有用户，即对i和j电影均有打分的用户，作为比较集。排除只看过其中一部或者均未看过的用户的干扰，使得到的相似度更接近事实。
+
+然后再进一步考虑公共用户的个数对数据可依赖程度的影响，最终得到相似度。运用公式（2）
+
 #### 结果
+利用本算法在测试集上获得的RMSE为0.8868，低于Baseline estimates的0.9231。
+
 ### 2.2 Linear Regression
 #### 方法
 #### 结果
