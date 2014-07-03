@@ -1,0 +1,46 @@
+load('../ml-1m/processed_dataset.mat');
+load('../baseline_estimator_result.mat');
+load('neighbourhood_result.mat');
+
+NO_SAME_USER = -2;
+NO_PEARSON = -3;
+
+
+
+for i=1:size(rat_test,1)
+    user = rat_test(i,1)
+    movie_i = rat_test(i,2)
+    %     user_all_movie = rat_train(rat_train(:,1)==user&rat_train(:,2)~=movie_i,2);
+    
+    w = calcx(A,b(movie_i,:));
+    
+    similarity_i = similarity_matrix(movie_i,:);
+    
+    similarity_weight = [similarity_i, w];
+    
+    top_k = sortrows(top_k,1);
+    top_k = top_k(end:-1:1,:);
+    if size(top_k,1) > 20
+        top_k = top_k(1:20,:);
+    end
+    
+    top_k(top_k(:,1)==0|top_k(:,1)==NO_SAME_USER|top_k(:,1)==NO_PEARSON,:) = [];
+
+    adjustment = 0;
+    for n = 1:size(top_k,1)
+        movie_j = top_k(n,2);
+        rating_u_j = rat_train((rat_train(:,1)==user)&(rat_train(:,2)==movie_j),3);
+        similarity_sum = similarity_sum + top_k_similarity(n,1);
+        adjustment = adjustment + top_k_similarity(n,1)*(rating_u_j - (mu + bu(user) + bi(movie_j)));
+        
+    end
+    
+    if 0 == similarity_sum
+        adjustment = 0;
+    else
+        adjustment = adjustment/similarity_sum;
+    end
+    
+    rat_pred_neighbour(i) = mu + bu(user) + bi(movie_i) + adjustment;
+    
+end
