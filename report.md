@@ -9,7 +9,7 @@
 #### 结果
 利用本算法在测试集上获得的RMSE为0.9231，在MovieLens数据集当中优于文章当中Netfix原有的0.9514，尽管两数据集不同，但由于数据集内容所涉及的领域和用户行为类似，此处认为有一定可比性。
 
-## Step.2 Neighborhood Estimator
+## Step.2 Neighbourhood Estimator
 ### 2.1 Item-based Similarity
 #### 方法
 #### 结果
