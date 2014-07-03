@@ -1,5 +1,5 @@
 %BASELINE_ESTIMATOR
-close all; clear; clc;
+close all; clear; clear global; clc;
 
 load('ml-1m/processed_dataset.mat');
 mu = mean(rat_train(:,3));
