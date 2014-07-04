@@ -76,6 +76,36 @@ neighbour_rmse          RMSE
 similarity_matrix       相似矩阵
 </pre>
 
+## 2(2). Linear Regression Based Neighborhood Estimator
+### 使用方法
+本部分在Matlab R2012b(Mac)编写并执行通过。
+
+直接在Matlab当中输入运行`main.m`即可。运行结束后会自动将结果保存为`linear_result.mat`。
+
+### 文件结构
+<pre>
+main.m   可执行代码
+GenerateAij.m		生成Aij的预处理脚本
+GenerateAverage.m	生成Aij所有可能值的平均值，和计算方式一致
+calcx.m			解Aw＝b方程组函数
+</pre>
+
+#### linear_result_bak.mat
+执行结果
+<pre>
+linear_rmse      RMSE
+rat_pred_linear          预测结果
+</pre>
+
+#### Aij.mat
+我们运算得到的Aij
+
+#### Nij.mat
+我们计算得到的ij电影的公共用户数组
+
+#### equ.png
+论文中的公式推导与分析
+
 ## 3. Temporal Dynamics
 ### 使用方法
 本部分在Matlab 2012b(Mac)编写并执行通过
