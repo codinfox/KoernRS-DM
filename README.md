@@ -1,6 +1,7 @@
 KoernRS-DM
 ==========
 <small><em>其实应该是Koren……拼错了，但就这样不改了……</em></small>
+
 使用说明
 ## 0. 数据处理
 我们使用Matlab作为编程环境。
@@ -53,6 +54,26 @@ bu								bu的估计值，以id为index
 bi								bi的估计值，以id为index
 rat_pred						预测结果
 baseline_estimator_rmse			RMSE
+</pre>
+
+## 2(1). Item-based Neighborhood Estimator
+### 使用方法
+本部分在Matlab R2012b(Mac)编写并执行通过。
+
+直接在Matlab当中输入运行`item_oriented_neighbourhood.m`即可。运行结束后会自动将结果保存为`neighbourhood_result.mat`。强烈建议不要清空数据集中的similarity_matrix数据，计算该数据非常消耗。
+
+### 文件结构
+<pre>
+item_oriented_neighbourhood.m   可执行代码
+neighbourhood_result.mat    执行结果
+Step 2 Scheme 1 Flow Chart  算法流程图
+</pre>
+
+#### neighbourhood_result.mat
+<pre>
+rat_pred_neighbour      预测结果
+neighbour_rmse          RMSE
+similarity_matrix       相似矩阵
 </pre>
 
 ## 3. Temporal Dynamics

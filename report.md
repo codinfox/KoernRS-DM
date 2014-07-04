@@ -9,13 +9,20 @@
 #### 结果
 利用本算法在测试集上获得的RMSE为0.9231，低于Global Average 1.1607,在MovieLens数据集当中优于文章当中Netfix原有的0.9514。但由于两数据集不同，故本数据无可比性。
 
-## Step.2 Neighborhood Estimator
+## Step.2 Neighbourhood Estimator
 ### 2.1 Item-based Similarity
 #### 方法
+这一部分的实现主要参照 *Koren08'* 2.2节关于Neighborhood models的描述，参数lambda2采取作者建议为100。在pearson相关系数的计算上，取item i与j的公有用户，即对i和j电影均有打分的用户，作为比较集。排除只看过其中一部或者均未看过的用户的干扰，使得到的相似度更接近事实。
+
+然后再进一步考虑公共用户的个数对数据可依赖程度的影响，最终得到相似度。运用公式（2）
+
 #### 结果
+利用本算法在测试集上获得的RMSE为0.8868，低于Baseline estimates的0.9231。
+
 ### 2.2 Linear Regression
 #### 方法
 #### 结果
+
 ## Step.3 Incorporating Temporal Dynamics
 #### 方法
 本部分的实现主要参照*Koren09'* 4.2节关于Time Changing Baseline Predictor的描述，在训练参数上使用了随机梯度下降法，迭代次数20次，系数eta为0.0005。
@@ -27,4 +34,3 @@
 
 1. 参数过多以至于过拟合。尽管有regularization的环节，但是由于拟合的参数过多，导致所得结果仍然是过度拟合；
 2. 部分参数，如but，只能基于已有时间计算，而测试数据的时间都在训练数据之后，导致这部分参数失效。
-
