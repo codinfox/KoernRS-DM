@@ -51,7 +51,7 @@ for i = 1 : max_user_id
 %     cut{i,2} = unique(train_in_days(id,end));
 %     cut{i,1} = ones(size(cut{i,2},1), 1); % to keep the bi at the beginning
     
-    fprintf('%d Done\n',floor(i/max_user_id*100));
+    fprintf('%.1f Done\n',floor(i/max_user_id*100));
 end
 param.mu = mu;
 param.bu = bu;

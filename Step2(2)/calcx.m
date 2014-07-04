@@ -21,6 +21,6 @@ while sqrt(r'*r) > e
     if (tmp < alpha) 
         alpha = tmp;
     end
-    
-    x = x + alpha*r;
+     bb = 0.001;
+    x = x - bb*r;
 end

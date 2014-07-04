@@ -9,7 +9,7 @@ lambda = 0.01;
 % figure;
 % hold on;
 cost = zeros(31,1);
-for iter = 1 : 30 % 30 iterations
+for iter = 1 : 10 % 30 iterations
     fprintf('=========== Start Iteration %d ===========\n', iter);
                 cost(iter) = calc_cost(param);
 %             fprintf('Cost: %f\n', cost(iter));
@@ -37,8 +37,9 @@ for iter = 1 : 30 % 30 iterations
 %         param.cu(user) = prev.cu(user) - eta*(-2*coeff*(prev.bi(movie) + prev.bibin(movie,td_ibin(time))) + 2*prev.cu(user)*lambda);
 %         param.cut{user,1}(position) = prev.cut{user,1}(position) - eta*(-2*coeff*(prev.bi(movie) + prev.bibin(movie,td_ibin(time))) + 2*prev.cut{user,1}(position)*lambda);
         
-        fprintf('Done %d\n',id);
-        
+        if mod(id,10000)==0
+            fprintf('Done %d\n',((iter-1)*size(train,1)+id)/(10*size(train,1)));
+        end
     end
 end
             cost(end) = calc_cost(param);
