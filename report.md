@@ -37,7 +37,7 @@
 
 我们首先对于文章当中的公式5、6、7、8进行了简单的推导。
 
-<img src="./Step2(2)/equ.png" />
+<img src="./Step2(2) Linear Regression Based Estimator/equ.png" />
 
 通过上面的公式推导，我们可以知道公式9当中的k其实也输入N(i;u)，同时可以理解为什么需要计算Ajk。之后我们按照论文思路对所需要的数据进行了预处理，并且对参数进行了求解。
 
