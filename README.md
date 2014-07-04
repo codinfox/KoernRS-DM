@@ -54,3 +54,25 @@ bi								bi的估计值，以id为index
 rat_pred						预测结果
 baseline_estimator_rmse			RMSE
 </pre>
+
+## 3. Temporal Dynamics
+### 使用方法
+本部分在Matlab 2012b(Mac)编写并执行通过
+
+直接在Matlab当中输入运行`temporal_dynamics`即可。运行结束后会自动将结果保存为`temporal_dynamics_result.mat`
+
+### 文件结构
+<pre>
+temporal_dynamics.m             可执行代码
+td_estimate_parameters.m        相关函数，用于训练算法，生成模型
+td_predict.m                    相关函数，用于预测结果
+td_translate_timestamp_to_days.m相关函数，用户将时间戳转换为日
+temporal_dynamics_result.mat    执行结果
+</pre>
+
+#### temporal_dynamics_result.mat
+<pre>
+model                           训练所的模型
+temporal_dynamics_rmse          RMSE
+pred                            预测结果
+</pre>
