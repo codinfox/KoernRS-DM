@@ -4,7 +4,7 @@ function [result, cost] = td_estimate_params(param)
 global tul;
 train = param.train_in_days;
 % stochastic gradient descent
-eta = 0.00005;
+eta = 0.001;
 lambda = 0.01;
 % figure;
 % hold on;
