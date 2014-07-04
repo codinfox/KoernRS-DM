@@ -9,7 +9,7 @@ lambda = 0.01;
 % figure;
 % hold on;
 cost = zeros(31,1);
-for iter = 1 : 10 % 30 iterations
+for iter = 1 : 30 % 30 iterations
     fprintf('=========== Start Iteration %d ===========\n', iter);
                 cost(iter) = calc_cost(param);
 %             fprintf('Cost: %f\n', cost(iter));
